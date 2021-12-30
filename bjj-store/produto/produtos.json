@@ -1,0 +1,36 @@
+[{
+	"uuid": "0001",
+    "name": "Kimono A2",
+	"detail": "Kimono Kvra preto",
+	"price": "200"
+},{
+	"uuid": "0002",
+    "name": "Kimono A1",
+	"detail": "Kimono Kvra branco",
+	"price": "200"
+},{
+	"uuid": "0003",
+    "name": "Rashguard",
+	"detail": "Rasguard azul tamanho P",
+	"price": "100"
+},{
+	"uuid": "0004",
+    "name": "Camiseta BJJ 4Life",
+	"detail": "Camiseta tamanho G",
+	"price": "90"
+},{
+	"uuid": "0005",
+    "name": "Monkey Tape",
+	"detail": "Esparadrapo Monkey tape cor Preta",
+	"price": "60"
+},{
+	"uuid": "0006",
+    "name": "Bone BJJ",
+	"detail": "Bone aba reto",
+	"price": "85"
+},{
+	"uuid": "0007",
+    "name": "Bermuda",
+	"detail": "Bermuda M BJJ",
+	"price": "150"
+}]
