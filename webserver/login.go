@@ -1,11 +1,15 @@
 package main
 
 import (
+	"crypto/md5"
 	"fmt"
 	"html/template"
+	"io"
 	"log"
 	"net/http"
+	"strconv"
 	"strings"
+	"time"
 )
 
 //Função para tratar o formulário de requisição enviado pelo user
@@ -27,13 +31,31 @@ func TratarDadosDoForm(w http.ResponseWriter, r *http.Request) {
 func Login(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("metodo da requisicao: ", r.Method) //apresentar o metodo da requição
 	if r.Method == "GET" {
+		crutime := time.Now().Unix()
+		hash := md5.New()
+
+		io.WriteString(hash, strconv.FormatInt(crutime, 10))
+
+		token := fmt.Sprintf("%x", hash.Sum(nil))
+
 		t, _ := template.ParseFiles("webserver/login.gtpl")
-		t.Execute(w, nil)
+		t.Execute(w, token)
 	} else {
 		r.ParseForm()
-		fmt.Println("username:", r.FormValue("username"))
-		fmt.Println("password:", r.FormValue("password"))
+		token := r.Form.Get("token")
+
+		if token != "" {
+			//
+		} else {
+			//
+		}
+
+		fmt.Println("username:", r.Form.Get("username"))
+		fmt.Println("password:", r.Form.Get("password"))
+		//fmt.Println("username:", template.HTMLEscapeString(r.Form.Get("username")))
+		//fmt.Println("password:", template.HTMLEscapeString(r.Form.Get("password")))
 		fmt.Println("POST content: ", r.Form.Encode())
+		//template.HTMLEscape(w, []byte(r.Form.Get("username")))
 	}
 }
 
